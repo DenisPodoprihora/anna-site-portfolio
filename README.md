@@ -16,7 +16,6 @@ assets/fonts/           DM Sans (variable, woff2)
 assets/icons/           svg-иконки и фавикон
 assets/img/             фотографии проектов и портрет
 content/content.json    все тексты сайта парами en/ru
-content/content.md      те же тексты в читаемом виде — для перевода
 ```
 
 ## Тексты и языки

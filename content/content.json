@@ -42,26 +42,20 @@
         "id": "01",
         "type": { "en": "mobile App", "ru": "Мобильное приложение" },
         "title": { "en": "Kroshka kartoshka app", "ru": "Приложение «Крошка Картошка»" },
-        "tags": {
-          "en": ["FoodTech", "B2C", "Product design"],
-          "ru": ["FoodTech", "B2C", "Продуктовый дизайн"]
-        },
+        "tags": [
+          { "en": "FoodTech", "ru": "FoodTech" },
+          { "en": "B2C", "ru": "B2C" },
+          { "en": "Product design", "ru": "Продуктовый дизайн" }
+        ],
         "overview": {
           "en": "Redesign of the Kroshka Kartoshka food delivery app, combining UX research, improved architecture, and intuitive ordering flows",
           "ru": "Редизайн приложения доставки еды «Крошка Картошка»: UX-исследование, переработанная архитектура и интуитивный сценарий заказа"
         },
-        "results": {
-          "en": [
-            "Introduced a new food delivery experience within the app",
-            "Simplified the path from menu browsing to order completion",
-            "Increased order conversion by 16% through improved UX and streamlined checkout"
-          ],
-          "ru": [
-            "Внедрён новый опыт доставки еды внутри приложения",
-            "Сокращён путь от просмотра меню до оформления заказа",
-            "Конверсия в заказ выросла на 16% за счёт улучшенного UX и упрощённого оформления"
-          ]
-        },
+        "results": [
+          { "en": "Introduced a new food delivery experience within the app", "ru": "Внедрён новый опыт доставки еды внутри приложения" },
+          { "en": "Simplified the path from menu browsing to order completion", "ru": "Сокращён путь от просмотра меню до оформления заказа" },
+          { "en": "Increased order conversion by 16% through improved UX and streamlined checkout", "ru": "Конверсия в заказ выросла на 16% за счёт улучшенного UX и упрощённого оформления" }
+        ],
         "coming_soon": null,
         "image": "assets/img/project-01-kroshka.jpg",
         "image_alt": {
@@ -73,26 +67,20 @@
         "id": "02",
         "type": { "en": "web & adaptive", "ru": "Веб и адаптив" },
         "title": { "en": "EJS developer website", "ru": "Сайт застройщика EJS" },
-        "tags": {
-          "en": ["Real estate", "UX optimization", "Product growth"],
-          "ru": ["Недвижимость", "UX-оптимизация", "Рост продукта"]
-        },
+        "tags": [
+          { "en": "Real estate", "ru": "Недвижимость" },
+          { "en": "UX optimization", "ru": "UX-оптимизация" },
+          { "en": "Product growth", "ru": "Рост продукта" }
+        ],
         "overview": {
           "en": "Rebuilt the real estate developer's website, from UX research and prototyping to a new visual system and intuitive property search",
           "ru": "Переработали сайт застройщика: от UX-исследования и прототипирования до новой визуальной системы и удобного поиска квартир"
         },
-        "results": {
-          "en": [
-            "Built a scalable design system to improve UI consistency and streamline product development",
-            "Optimized user journeys based on research and analytics",
-            "Increased search engagement by 26% through improved usability"
-          ],
-          "ru": [
-            "Собрана масштабируемая дизайн-система для единообразия интерфейса и ускорения разработки",
-            "Оптимизированы пользовательские сценарии на основе исследований и аналитики",
-            "Вовлечённость в поиск выросла на 26% за счёт улучшенной юзабилити"
-          ]
-        },
+        "results": [
+          { "en": "Built a scalable design system to improve UI consistency and streamline product development", "ru": "Собрана масштабируемая дизайн-система для единообразия интерфейса и ускорения разработки" },
+          { "en": "Optimized user journeys based on research and analytics", "ru": "Оптимизированы пользовательские сценарии на основе исследований и аналитики" },
+          { "en": "Increased search engagement by 26% through improved usability", "ru": "Вовлечённость в поиск выросла на 26% за счёт улучшенной юзабилити" }
+        ],
         "coming_soon": null,
         "image": "assets/img/project-02-ejs.jpg",
         "image_alt": {
@@ -104,28 +92,21 @@
         "id": "03",
         "type": { "en": "mobile App", "ru": "Мобильное приложение" },
         "title": { "en": "Nova banking app", "ru": "Банковское приложение Nova" },
-        "tags": {
-          "en": ["FinTech", "B2C/B2B", "Financial management"],
-          "ru": ["FinTech", "B2C/B2B", "Управление финансами"]
-        },
+        "tags": [
+          { "en": "FinTech", "ru": "FinTech" },
+          { "en": "B2C/B2B", "ru": "B2C/B2B" },
+          { "en": "Financial management", "ru": "Управление финансами" }
+        ],
         "overview": {
           "en": "The fintech mobile banking app for international markets, offering fiat and crypto exchange, payments, and financial management",
           "ru": "Финтех-приложение для международных рынков: фиатный и криптообмен, платежи и управление финансами"
         },
-        "results": {
-          "en": [
-            "Designed key features for currency exchange, payments, and financial management",
-            "Structured complex financial flows into intuitive user journeys",
-            "Integrated fiat and crypto services into one app",
-            "Design system development for consistent, scalable UI"
-          ],
-          "ru": [
-            "Спроектированы ключевые функции: обмен валют, платежи и управление финансами",
-            "Сложные финансовые сценарии структурированы в понятные пользовательские пути",
-            "Фиатные и криптосервисы объединены в одном приложении",
-            "Разработана дизайн-система для последовательного и масштабируемого интерфейса"
-          ]
-        },
+        "results": [
+          { "en": "Designed key features for currency exchange, payments, and financial management", "ru": "Спроектированы ключевые функции: обмен валют, платежи и управление финансами" },
+          { "en": "Structured complex financial flows into intuitive user journeys", "ru": "Сложные финансовые сценарии структурированы в понятные пользовательские пути" },
+          { "en": "Integrated fiat and crypto services into one app", "ru": "Фиатные и криптосервисы объединены в одном приложении" },
+          { "en": "Design system development for consistent, scalable UI", "ru": "Разработана дизайн-система для последовательного и масштабируемого интерфейса" }
+        ],
         "coming_soon": { "en": "Coming soon", "ru": "Скоро" },
         "image": "assets/img/project-03-nova.jpg",
         "image_alt": {
@@ -137,28 +118,21 @@
         "id": "04",
         "type": { "en": "web platform", "ru": "Веб-платформа" },
         "title": { "en": "Husher platform", "ru": "Платформа Husher" },
-        "tags": {
-          "en": ["Crypto exchange", "FinTech", "UX optimization"],
-          "ru": ["Криптообмен", "FinTech", "UX-оптимизация"]
-        },
+        "tags": [
+          { "en": "Crypto exchange", "ru": "Криптообмен" },
+          { "en": "FinTech", "ru": "FinTech" },
+          { "en": "UX optimization", "ru": "UX-оптимизация" }
+        ],
         "overview": {
           "en": "A crypto exchange product bringing together asset conversion, transaction management, and essential financial tools",
           "ru": "Продукт для криптообмена: конвертация активов, управление транзакциями и базовые финансовые инструменты"
         },
-        "results": {
-          "en": [
-            "Expanded exchange capabilities with multi-exchange functionality",
-            "Introduced new account management features",
-            "Designed the referral system to attract new users",
-            "Increased exchange activity by 18% after the redesign"
-          ],
-          "ru": [
-            "Расширены возможности обмена за счёт мультивалютного функционала",
-            "Добавлены функции управления аккаунтом",
-            "Спроектирована реферальная система для привлечения новых пользователей",
-            "Активность обмена выросла на 18% после редизайна"
-          ]
-        },
+        "results": [
+          { "en": "Expanded exchange capabilities with multi-exchange functionality", "ru": "Расширены возможности обмена за счёт мультивалютного функционала" },
+          { "en": "Introduced new account management features", "ru": "Добавлены функции управления аккаунтом" },
+          { "en": "Designed the referral system to attract new users", "ru": "Спроектирована реферальная система для привлечения новых пользователей" },
+          { "en": "Increased exchange activity by 18% after the redesign", "ru": "Активность обмена выросла на 18% после редизайна" }
+        ],
         "coming_soon": null,
         "image": "assets/img/project-04-husher.jpg",
         "image_alt": {
@@ -170,28 +144,21 @@
         "id": "05",
         "type": { "en": "App design", "ru": "Дизайн приложения" },
         "title": { "en": "Menorah app", "ru": "Приложение Menorah" },
-        "tags": {
-          "en": ["Social Tech", "AI", "Gamification"],
-          "ru": ["Соцтех", "AI", "Геймификация"]
-        },
+        "tags": [
+          { "en": "Social Tech", "ru": "Соцтех" },
+          { "en": "AI", "ru": "AI" },
+          { "en": "Gamification", "ru": "Геймификация" }
+        ],
         "overview": {
           "en": "Designed an AI-powered community platform combining gamification, identity verification, community chats, and AI tools",
           "ru": "AI-платформа для сообществ: геймификация, верификация личности, чаты и AI-инструменты"
         },
-        "results": {
-          "en": [
-            "Structured complex user journeys across core features",
-            "Designed gamified progression and verification flows",
-            "500+ screens designed and 8 core user flows",
-            "Aligned UX solutions with business requirements through direct client collaboration"
-          ],
-          "ru": [
-            "Структурированы сложные пользовательские сценарии по ключевым функциям",
-            "Спроектированы геймифицированная прогрессия и сценарии верификации",
-            "Спроектировано 500+ экранов и 8 ключевых пользовательских сценариев",
-            "UX-решения согласованы с бизнес-требованиями в ходе прямой работы с клиентом"
-          ]
-        },
+        "results": [
+          { "en": "Structured complex user journeys across core features", "ru": "Структурированы сложные пользовательские сценарии по ключевым функциям" },
+          { "en": "Designed gamified progression and verification flows", "ru": "Спроектированы геймифицированная прогрессия и сценарии верификации" },
+          { "en": "500+ screens designed and 8 core user flows", "ru": "Спроектировано 500+ экранов и 8 ключевых пользовательских сценариев" },
+          { "en": "Aligned UX solutions with business requirements through direct client collaboration", "ru": "UX-решения согласованы с бизнес-требованиями в ходе прямой работы с клиентом" }
+        ],
         "coming_soon": null,
         "image": "assets/img/project-05-menorah.jpg",
         "image_alt": {
@@ -203,26 +170,20 @@
         "id": "06",
         "type": { "en": "web platform", "ru": "Веб-платформа" },
         "title": { "en": "Eclipse platform", "ru": "Платформа Eclipse" },
-        "tags": {
-          "en": ["iGaming platform", "B2C", "Workflow design"],
-          "ru": ["iGaming-платформа", "B2C", "Проектирование процессов"]
-        },
+        "tags": [
+          { "en": "iGaming platform", "ru": "iGaming-платформа" },
+          { "en": "B2C", "ru": "B2C" },
+          { "en": "Workflow design", "ru": "Проектирование процессов" }
+        ],
         "overview": {
           "en": "An integrated casino platform combining gaming experiences, player accounts, rewards, and personalized features in one ecosystem",
           "ru": "Интегрированная казино-платформа: игровой опыт, аккаунты игроков, награды и персонализация в единой экосистеме"
         },
-        "results": {
-          "en": [
-            "Developed end-to-end UX/UI solutions across the platform's core features",
-            "Optimized the deposit journey through UX research, analysis, and industry best practices",
-            "Designed 60+ screens for desktop and mobile versions"
-          ],
-          "ru": [
-            "Разработаны end-to-end UX/UI решения для ключевых функций платформы",
-            "Оптимизирован сценарий депозита на основе UX-исследований, аналитики и отраслевых практик",
-            "Спроектировано 60+ экранов для десктопа и мобильных устройств"
-          ]
-        },
+        "results": [
+          { "en": "Developed end-to-end UX/UI solutions across the platform's core features", "ru": "Разработаны end-to-end UX/UI решения для ключевых функций платформы" },
+          { "en": "Optimized the deposit journey through UX research, analysis, and industry best practices", "ru": "Оптимизирован сценарий депозита на основе UX-исследований, аналитики и отраслевых практик" },
+          { "en": "Designed 60+ screens for desktop and mobile versions", "ru": "Спроектировано 60+ экранов для десктопа и мобильных устройств" }
+        ],
         "coming_soon": null,
         "image": "assets/img/project-06-eclipse.jpg",
         "image_alt": {
@@ -234,28 +195,21 @@
         "id": "07",
         "type": { "en": "web & adaptive", "ru": "Веб и адаптив" },
         "title": { "en": "Stroytek website", "ru": "Сайт Stroytek" },
-        "tags": {
-          "en": ["Real estate", "B2C", "Data-driven UX"],
-          "ru": ["Недвижимость", "B2C", "UX на основе данных"]
-        },
+        "tags": [
+          { "en": "Real estate", "ru": "Недвижимость" },
+          { "en": "B2C", "ru": "B2C" },
+          { "en": "Data-driven UX", "ru": "UX на основе данных" }
+        ],
         "overview": {
           "en": "Delivered an end-to-end website redesign, combining data-driven UX decisions, advanced apartment search, and new functionality",
           "ru": "Комплексный редизайн сайта: решения на основе данных, продвинутый поиск квартир и новый функционал"
         },
-        "results": {
-          "en": [
-            "Improved apartment discovery with advanced filtering by key property parameters",
-            "Streamlined the journey from apartment search to inquiry submission",
-            "Increased website traffic by 30% after the launch",
-            "Generated 22% more inquiries post-redesign"
-          ],
-          "ru": [
-            "Улучшен подбор квартир за счёт продвинутой фильтрации по ключевым параметрам",
-            "Упрощён путь от поиска квартиры до отправки заявки",
-            "Трафик сайта вырос на 30% после запуска",
-            "Количество заявок выросло на 22% после редизайна"
-          ]
-        },
+        "results": [
+          { "en": "Improved apartment discovery with advanced filtering by key property parameters", "ru": "Улучшен подбор квартир за счёт продвинутой фильтрации по ключевым параметрам" },
+          { "en": "Streamlined the journey from apartment search to inquiry submission", "ru": "Упрощён путь от поиска квартиры до отправки заявки" },
+          { "en": "Increased website traffic by 30% after the launch", "ru": "Трафик сайта вырос на 30% после запуска" },
+          { "en": "Generated 22% more inquiries post-redesign", "ru": "Количество заявок выросло на 22% после редизайна" }
+        ],
         "coming_soon": null,
         "image": "assets/img/project-07-stroytek.jpg",
         "image_alt": {
@@ -267,7 +221,7 @@
   },
 
   "explorations": {
-    "title": { "en": "Explorations", "ru": "Эксперименты" },
+    "title": { "en": "Explorations", "ru": "Исследования" },
     "subtitle": {
       "en": "A curated collection of concepts, visual studies, and independent design experiments created outside of commercial projects",
       "ru": "Подборка концептов, визуальных исследований и независимых дизайн-экспериментов вне коммерческих проектов"
