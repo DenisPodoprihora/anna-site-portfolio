@@ -1,0 +1,943 @@
+/* ============================================================
+   Anna Zhdankina — portfolio
+   Все значения сняты с design/screens/desktop/main.png (1440×7889)
+   Кегли подобраны рендером DM Sans по ширине строк макета.
+   ============================================================ */
+
+/* ---------- Шрифт ---------- */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../fonts/DMSans.woff2') format('woff2-variations');
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Токены (из design-tokens.tokens.json) ---------- */
+:root {
+  --c-orange:   #f87029;
+  --c-ink:      #1a1b1d;
+  --c-base-900: #1a1a1a;
+  --c-grey-1:   #95999d;
+  --c-gray-600: #828282;
+  --c-gray-400: #929292;
+  --c-stroke:   #e0e0e0;
+  --c-stroke-2: #d3d3d3;
+  --c-bg:       #f3f4f6;
+  --c-surface:  #f4f4f4;
+  --c-white:    #ffffff;
+  --c-soon:     #bdbdbd;
+
+  --shadow-1: 17px 17px 52px 1px rgba(19, 23, 32, .24);
+
+  --font: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --container: 1320px;
+  --radius: 24px;
+
+  /* вертикальный ритм */
+  --header-h: 80px;
+  --card-h: 685px;
+  --card-gap: 48px;
+}
+
+/* ---------- Сброс ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  /* Figma держит оптический размер на 14 — иначе браузер сам
+     подставляет opsz под кегль и строки становятся уже макета */
+  font-variation-settings: 'opsz' 14;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: var(--container);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   Кнопки — h48, кегль 18, скругление 200
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 14px 18px 14px 22px;
+  border-radius: 200px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+
+.btn--ghost {
+  padding: 14px 22px;
+  border: 1px solid var(--c-stroke-2);
+  color: var(--c-ink);
+}
+.btn--ghost:hover { border-color: var(--c-ink); }
+
+.btn--dark {
+  background: var(--c-ink);
+  color: var(--c-white);
+}
+.btn--dark:hover { background: #333438; }
+
+.btn__icon { flex: none; }
+
+/* ============================================================
+   Header — 80px, разделитель 1px
+   ============================================================ */
+.header {
+  border-bottom: 1px solid var(--c-stroke-2);
+}
+
+.header__inner {
+  /* 79 + 1px разделитель = 80 — ровно как фрейм Header в макете */
+  height: calc(var(--header-h) - 1px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15.5px 0;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -.36px;
+  line-height: normal;
+}
+
+.header__name { color: var(--c-ink); }
+
+.header__role { color: var(--c-gray-600); }
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ============================================================
+   Hero — фрейм 1440×708 (y 80..788), блок контента 874 по центру.
+   Зазоры 63/21 подобраны по пикселям макета: Figma обрезает текстовые
+   блоки по cap/baseline ([text-box-trim]), из-за чего её собственные
+   gap 60/44 не дают нужных позиций строк в браузере.
+   ============================================================ */
+.hero { position: relative; padding-top: 0; }
+
+.hero__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* НЕ по центру: в макете группа аватара стоит на 154.67, а заголовок на
+     490.3 — при центрировании (144.67) аватар уезжал вверх на 10px.
+     74.67 = 154.67 − 80 (верх hero). */
+  justify-content: flex-start;
+  padding-top: 74.67px;
+  height: 708px;
+}
+
+/* 53 = 490.3 − 154.67 − 282.655 (высота блока аватара) */
+.hero__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 53px;
+  width: 874px;
+}
+
+.hero__avatar {
+  position: relative;
+  width: 258.229px;
+  height: 282.655px;
+  flex: none;
+}
+
+.hero__avatar img {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 258.229px;
+  height: 258.229px;
+  border: 12.911px solid #f9f9f9;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 19.223px 19.223px 58.8px 1.198px rgba(19, 23, 32, .05);
+}
+
+/* бейдж свисает ниже аватара */
+.hero__badge {
+  position: absolute;
+  left: 50%;
+  top: 230.9px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11.377px 27.306px;
+  border-radius: 223.595px;
+  background: var(--c-orange);
+  color: var(--c-white);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.0704px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.hero__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 21px;
+  width: 100%;
+}
+
+.hero__title {
+  font-size: 72px;
+  line-height: 72px;
+  font-weight: 500;
+  /* в макете строка набрана Aeonik Pro Medium без трекинга */
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--c-base-900);
+}
+
+.hero__title span { display: block; }
+.hero__title-accent { color: var(--c-orange); }
+
+.hero__subtitle {
+  width: 687px;
+  font-size: 22px;
+  line-height: 34px;
+  font-weight: 500;
+  letter-spacing: -.33px;
+  color: var(--c-gray-600);
+  text-align: center;
+}
+
+/* ---------- Декоративные карточки hero ----------
+   Геометрия снята с фреймов 125:22089 / 125:22090 / 127:28258.
+   Все размеры — «как есть» из Figma, включая дробные.            */
+
+.hero__deco {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* --- левая группа: 285×127 в точке (102, 108) --- */
+.hero__deco--left {
+  left: 42px;              /* 102 − 60 (контейнер) */
+  top: 108px;
+  width: 285px;
+  height: 127px;
+}
+
+/* «UX strategy» — белая плашка 48px-иконка + подпись, наклон −12° */
+.deco-ux {
+  position: absolute;
+  /* в макете карточка «UX strategy» перекрывает оранжевую иконку
+     соседней плашки «Design apps & web» — она лежит выше */
+  z-index: 2;
+  left: -.03px;
+  top: -5.26px;
+  width: 192.307px;
+  height: 100.649px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deco-ux__card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px 8px 8px;
+  border-radius: 12px;
+  background: var(--c-white);
+  filter: drop-shadow(17px 17px 26px rgba(19, 23, 32, .04));
+  transform: rotate(-12deg);
+}
+
+.deco-ux__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex: none;
+}
+
+.deco-ux__text {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.36px;
+  color: var(--c-ink);
+  white-space: nowrap;
+}
+
+/* «Design apps & web» — белая плашка с оранжевым квадратом, opacity 67% */
+.deco-apps {
+  position: absolute;
+  z-index: 1;
+  left: 66.39px;
+  top: 63.83px;
+  width: 152.777px;
+  height: 56px;
+  opacity: .67;
+}
+
+.deco-apps__bg {
+  position: absolute;
+  inset: 0;
+  width: 218.663px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--c-white);
+  transform: rotate(.35deg);
+}
+
+.deco-apps__btn {
+  position: absolute;
+  inset: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 13.65px;
+  padding: 4.55px 18.2px 4.55px 6.825px;
+  border-radius: 113.748px;
+  transform: rotate(.35deg);
+}
+
+.deco-apps__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--c-orange);
+  flex: none;
+}
+
+.deco-apps__text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.32px;
+  color: var(--c-gray-600);
+  white-space: nowrap;
+}
+
+/* --- правая группа: карточка «20+ products»
+       внешний бокс 247.567×190.296 в точке (1083.91, 129.86),
+       внутри — бокс 233.588×170.587 с поворотом 5°                --- */
+.hero__deco--right {
+  left: 1023.91px;         /* 1083.91 − 60 */
+  top: 129.86px;
+  width: 247.567px;
+  height: 190.296px;
+}
+
+.deco-products {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 233.588px;
+  height: 170.587px;
+  transform: translate(-50%, -50%) rotate(5deg);
+}
+
+.deco-products img { display: block; }
+
+/* задняя серая плоскость карточки (флип по Y, как в макете) */
+.deco-products__base {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -.2%;
+  bottom: 5.73%;
+  transform: scaleY(-1);
+}
+
+.deco-products__base img { width: 100%; height: 100%; }
+
+/* полупрозрачный блик, повёрнут на 4.4° и скошен */
+.deco-products__glow {
+  position: absolute;
+  left: 8.315px;
+  top: 9.741px;
+  width: 220.42px;
+  height: 158.786px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deco-products__glow img {
+  width: 208.536px;
+  height: 143.389px;
+  transform: rotate(4.4deg) skewX(-.63deg);
+}
+
+/* белое «окно» */
+.deco-products__bar {
+  position: absolute;
+  left: calc(50% - .24px);
+  top: 10.75%;
+  bottom: 5.24%;
+  width: 191.648px;
+  transform: translateX(-50%);
+}
+
+.deco-products__bar img { width: 100%; height: 100%; }
+
+/* мягкая тень под передней плоскостью */
+.deco-products__blur {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 33.19%;
+  bottom: 1.2%;
+}
+
+.deco-products__blur img {
+  position: absolute;
+  left: -3.34px;
+  top: -3.335px;
+  width: 240.269px;
+  height: 118.589px;
+}
+
+/* передняя плоскость карточки */
+.deco-products__face {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 33.19%;
+  bottom: 1.38%;
+}
+
+.deco-products__face img { width: 100%; height: 100%; }
+
+/* текст «20+ products / From idea to launch» + круглый логотип */
+.deco-products__info {
+  position: absolute;
+  left: calc(50% + 1.66px);
+  top: 96.72px;
+  width: 193.315px;
+  height: 52.245px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.deco-products__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* как items-start у 125:22067 */
+  gap: 5.699px;
+  flex: 1;
+  min-width: 0;
+}
+
+.deco-products__title {
+  font-size: 16.665px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -.3333px;
+  color: var(--c-ink);
+  white-space: nowrap;
+}
+
+/* text-align: right из Figma — no-op: у 125:22067 items-start, поэтому
+   абзац сжимается по тексту и прижат влево (в макете «From idea to
+   launch» начинается под «20+ products», без отступа слева) */
+.deco-products__sub {
+  font-size: 15.197px;
+  line-height: normal;
+  letter-spacing: -.3039px;
+  color: var(--c-grey-1);
+  white-space: nowrap;
+}
+
+.deco-products__logo {
+  position: relative;
+  width: 26.596px;
+  height: 26.596px;
+  border-radius: 50%;
+  background: var(--c-white);
+  flex: none;
+}
+
+/* в Figma флип (-scale-y-100 rotate-180) стоит и на круге, и внутри
+   него — двойное отражение даёт исходную ориентацию, поэтому логотип
+   НЕ переворачиваем */
+/* 7.6 = (26.596 − 15.197)/2 + 1.9 — рамка 15.197 отцентрована в круге,
+   а внутри неё группа 125:22072 стоит с отступом 1.9 */
+.deco-products__logo img {
+  position: absolute;
+  left: 7.6px;
+  top: 7.6px;
+  width: 11.398px;
+  height: 13.18px;
+}
+
+/* «три точки» в углу белого окна */
+.deco-products__menu {
+  position: absolute;
+  left: 176.65px;
+  top: 28.33px;
+  width: 19.998px;
+  height: 19.998px;
+}
+
+.deco-products__menu img {
+  position: absolute;
+  left: 8.571px;
+  top: 3.572px;
+  width: 2.857px;
+  height: 18.569px;
+}
+
+/* ============================================================
+   Заголовки секций — 72/500, letter-spacing -2.88
+   ============================================================ */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  text-align: center;
+}
+
+.section-head__title {
+  font-size: 72px;
+  line-height: normal;
+  font-weight: 500;
+  letter-spacing: -2.88px;
+  color: var(--c-ink);
+}
+
+.section-head__sub {
+  max-width: 687px;
+  font-size: 22px;
+  line-height: 34px;
+  font-weight: 500;
+  letter-spacing: -.33px;
+  color: var(--c-gray-600);
+}
+
+/* ============================================================
+   Projects — заголовок 908, первая карточка 1107
+   ============================================================ */
+.projects { padding-top: 99px; }
+
+.projects__grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--card-gap);
+}
+
+/* строка во всю ширину: 650 + 20 + 650 = 1320 */
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.project--reverse .project__text  { order: 2; }
+.project--reverse .project__media { order: 1; }
+
+.project__text {
+  height: var(--card-h);
+  padding: 28px 40px 40px;
+  background: var(--c-white);
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+/* 41 = 29 (кап-высота 14px, как в макете после text-box-trim) + 12 padding */
+.project__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 41px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--c-stroke);
+}
+
+.project__num,
+.project__type {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -.14px;
+  line-height: normal;
+}
+
+.project__type {
+  display: flex;
+  align-items: center;
+  /* 10px по бокам — как в макете: текст не прижат к правому краю шапки */
+  padding: 0 10px;
+  text-transform: uppercase;
+}
+
+.project__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* кнопка по ширине текста, а не во всю колонку (в макете 175×48) */
+.project__cta { align-self: flex-start; }
+
+.project__info {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+  width: 569px;
+}
+
+.project__top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project__details {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.project__title {
+  font-size: 52px;
+  line-height: normal;
+  font-weight: 400;
+  letter-spacing: -1.04px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 196.527px;
+  background: var(--c-surface);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -.0576px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.project__group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.project__label {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.project__overview,
+.project__results {
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--c-gray-600);
+}
+
+/* в макете строки списка идут сплошняком, без зазора между пунктами */
+.project__results {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.project__results li {
+  position: relative;
+  padding-left: 27px;
+}
+
+.project__results li::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Figma обрезает строку по baseline — без этого отступа текст
+   прижат к низу карточки на 4px ниже макета */
+.project__soon {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--c-soon);
+  line-height: normal;
+  padding-bottom: 4px;
+}
+
+.project__media {
+  height: var(--card-h);
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.project__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================================
+   Explorations — заголовок 6348, сетка 6549, кнопка 7249
+   ============================================================ */
+/* 139, а не 158: Figma обрезает заголовок по cap-высоте, поэтому в
+   браузере к нему добавляется ~19px полулидинга. 139 + 19 = 158 —
+   чернила заголовка встают на 6348, как в макете. Освободившиеся 19px
+   уходят в margin-top сетки, чтобы она осталась на 6549. */
+.explorations { padding-top: 139px; }
+
+.explorations__grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.explore {
+  display: block;
+  border-radius: 28px;
+  overflow: hidden;
+  transition: transform .25s ease;
+}
+
+.explore:hover { transform: translateY(-4px); }
+
+.explore img {
+  width: 100%;
+  aspect-ratio: 427 / 324;
+  object-fit: cover;
+}
+
+.explorations__cta {
+  margin-top: 33px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================================
+   Contact — карточка 7417..7828, низ страницы 7889
+   ============================================================ */
+.contact { padding: 120px 0 60px; }
+
+.contact__card {
+  padding: 80px 60px 61px;   /* низ карточки — ровно 7828, как в макете */
+  background: var(--c-white);
+  border-radius: 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.contact__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 29px 0;
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -.04em;
+}
+
+.contact__avatar {
+  position: relative;
+  width: 158.095px;
+  height: 87.619px;
+  flex: none;
+}
+
+/* Белое кольцо в макете нарисовано СНАРУЖИ кадра 87.619 (у фрейма
+   125:23124 ровно эта высота), поэтому это box-shadow, а не border:
+   с border-box рамка съедала бы 5.3px и кружки вышли бы на 79px. */
+/* ВАЖНО: именно `>`, иначе правило цепляет и иконку внутри .contact__tg
+   (она тоже <img> внутри .contact__avatar) и рисует ей лишнее кольцо. */
+.contact__avatar > img,
+.contact__tg {
+  position: absolute;
+  top: 0;
+  width: 87.619px;
+  height: 87.619px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5.298px var(--c-white);
+}
+
+/* Порядок наложения как в Figma (125:23124): первым слоем идёт круг
+   Telegram, поверх него — фото. Поэтому у фото z-index выше. */
+.contact__avatar > img {
+  left: 0;
+  z-index: 2;
+  object-fit: cover;
+}
+
+.contact__tg {
+  left: 70.48px;
+  z-index: 1;
+  background: var(--c-orange);
+}
+
+/* Иконка Telegram: артборд 35.238 в кадре 42.857, который отцентрован
+   в круге 87.619 со сдвигом −0.48px (данные узлов 125:23125/125:23126). */
+.contact__tg img {
+  position: absolute;
+  left: 25.715px;
+  top: 29.524px;
+  width: 35.238px;
+  height: 35.238px;
+}
+
+.contact__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.contact__sub {
+  font-size: 22px;
+  line-height: 34px;
+  font-weight: 500;
+  letter-spacing: -.33px;
+  color: var(--c-gray-600);
+}
+
+.contact__links {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* 43 — высота фрейма чипа в Figma (125:23135); вертикальные паддинги
+     убраны, текст центрируется по height */
+  height: 43px;
+  padding: 0 24px 0 16px;
+  border: 1px solid var(--c-stroke);
+  border-radius: 196.527px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  transition: border-color .2s ease;
+}
+
+/* Иконки чипов: слот 20×20, внутри — артборд из Figma со своими
+   отступами (inset у групп 125:27752 / 125:27762 / 125:27766).
+   overflow: hidden повторяет figma-овский overflow-clip. */
+.chip__icon {
+  position: relative;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.chip__icon img { position: absolute; display: block; }
+
+.chip__icon--cv img       { left: 3px; top: 2px; width: 13px; height: 18px; }
+.chip__icon--linkedin img { left: 1px; top: 1px; width: 18px; height: 21px; }
+.chip__icon--mail img     { left: 2px; top: 3px; width: 17px; height: 17px; }
+
+.chip:hover { border-color: var(--c-ink); }
+
+/* ============================================================
+   Переключатель языка
+   ============================================================ */
+.lang-switch {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+  background: var(--c-white);
+  border: 1px solid var(--c-stroke);
+  border-radius: 22px;
+  box-shadow: 0 6px 24px rgba(19, 23, 32, .12);
+}
+
+.lang-switch__btn {
+  min-width: 44px;
+  height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 18px;
+  background: transparent;
+  color: var(--c-gray-600);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.lang-switch__btn:hover { color: var(--c-ink); }
+
+.lang-switch__btn.is-active {
+  background: var(--c-ink);
+  color: var(--c-white);
+}

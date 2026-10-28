@@ -1,0 +1,322 @@
+{
+  "_meta": {
+    "source": "design/screens/desktop/main.png (1440x7889)",
+    "default_lang": "en",
+    "langs": ["en", "ru"],
+    "note": "en — дословно из макета. ru — перевод, требует вычитки носителем. Ключи одинаковы во всех языках."
+  },
+
+  "header": {
+    "name": { "en": "Anna Zhdankina", "ru": "Анна Жданкина" },
+    "role": { "en": "UX/UI & product designer", "ru": "UX/UI и продуктовый дизайнер" },
+    "cta_primary": { "en": "Contact me", "ru": "Связаться" },
+    "cta_secondary": { "en": "Download CV", "ru": "Скачать CV" }
+  },
+
+  "hero": {
+    "badge": { "en": "Hi! I'm Anna 👋🏻", "ru": "Привет! Я Анна 👋🏻" },
+    "title_line1": { "en": "UX/UI & product designer", "ru": "UX/UI и продуктовый дизайнер" },
+    "title_line2": { "en": "with 4 years in design", "ru": "с 4 годами опыта в дизайне" },
+    "subtitle": {
+      "en": "Designed enterprise and B2B products across FinTech, iGaming, and AI. Built 20+ digital products",
+      "ru": "Проектировала корпоративные и B2B-продукты в FinTech, iGaming и AI. Выпустила более 20 цифровых продуктов"
+    },
+    "card_1": { "en": "UX strategy", "ru": "UX-стратегия" },
+    "card_2": { "en": "Design apps & web", "ru": "Дизайн приложений и веба" },
+    "card_3_title": { "en": "20+ products", "ru": "20+ продуктов" },
+    "card_3_subtitle": { "en": "From idea to launch", "ru": "От идеи до запуска" }
+  },
+
+  "projects": {
+    "title": { "en": "Projects", "ru": "Проекты" },
+    "subtitle": {
+      "en": "A selection of my most interesting projects across web, app design, and complex digital platforms and systems",
+      "ru": "Избранные проекты: веб, мобильные приложения и сложные цифровые платформы"
+    },
+    "overview_label": { "en": "Product overview", "ru": "О продукте" },
+    "results_label": { "en": "The results", "ru": "Результаты" },
+    "cta": { "en": "View project", "ru": "Смотреть проект" },
+
+    "items": [
+      {
+        "id": "01",
+        "type": { "en": "mobile App", "ru": "Мобильное приложение" },
+        "title": { "en": "Kroshka kartoshka app", "ru": "Приложение «Крошка Картошка»" },
+        "tags": {
+          "en": ["FoodTech", "B2C", "Product design"],
+          "ru": ["FoodTech", "B2C", "Продуктовый дизайн"]
+        },
+        "overview": {
+          "en": "Redesign of the Kroshka Kartoshka food delivery app, combining UX research, improved architecture, and intuitive ordering flows",
+          "ru": "Редизайн приложения доставки еды «Крошка Картошка»: UX-исследование, переработанная архитектура и интуитивный сценарий заказа"
+        },
+        "results": {
+          "en": [
+            "Introduced a new food delivery experience within the app",
+            "Simplified the path from menu browsing to order completion",
+            "Increased order conversion by 16% through improved UX and streamlined checkout"
+          ],
+          "ru": [
+            "Внедрён новый опыт доставки еды внутри приложения",
+            "Сокращён путь от просмотра меню до оформления заказа",
+            "Конверсия в заказ выросла на 16% за счёт улучшенного UX и упрощённого оформления"
+          ]
+        },
+        "coming_soon": null,
+        "image": "assets/img/project-01-kroshka.jpg",
+        "image_alt": {
+          "en": "Kroshka Kartoshka food delivery app on a phone",
+          "ru": "Приложение доставки еды «Крошка Картошка» на телефоне"
+        }
+      },
+      {
+        "id": "02",
+        "type": { "en": "web & adaptive", "ru": "Веб и адаптив" },
+        "title": { "en": "EJS developer website", "ru": "Сайт застройщика EJS" },
+        "tags": {
+          "en": ["Real estate", "UX optimization", "Product growth"],
+          "ru": ["Недвижимость", "UX-оптимизация", "Рост продукта"]
+        },
+        "overview": {
+          "en": "Rebuilt the real estate developer's website, from UX research and prototyping to a new visual system and intuitive property search",
+          "ru": "Переработали сайт застройщика: от UX-исследования и прототипирования до новой визуальной системы и удобного поиска квартир"
+        },
+        "results": {
+          "en": [
+            "Built a scalable design system to improve UI consistency and streamline product development",
+            "Optimized user journeys based on research and analytics",
+            "Increased search engagement by 26% through improved usability"
+          ],
+          "ru": [
+            "Собрана масштабируемая дизайн-система для единообразия интерфейса и ускорения разработки",
+            "Оптимизированы пользовательские сценарии на основе исследований и аналитики",
+            "Вовлечённость в поиск выросла на 26% за счёт улучшенной юзабилити"
+          ]
+        },
+        "coming_soon": null,
+        "image": "assets/img/project-02-ejs.jpg",
+        "image_alt": {
+          "en": "EJS real estate developer website on a laptop",
+          "ru": "Сайт застройщика EJS на ноутбуке"
+        }
+      },
+      {
+        "id": "03",
+        "type": { "en": "mobile App", "ru": "Мобильное приложение" },
+        "title": { "en": "Nova banking app", "ru": "Банковское приложение Nova" },
+        "tags": {
+          "en": ["FinTech", "B2C/B2B", "Financial management"],
+          "ru": ["FinTech", "B2C/B2B", "Управление финансами"]
+        },
+        "overview": {
+          "en": "The fintech mobile banking app for international markets, offering fiat and crypto exchange, payments, and financial management",
+          "ru": "Финтех-приложение для международных рынков: фиатный и криптообмен, платежи и управление финансами"
+        },
+        "results": {
+          "en": [
+            "Designed key features for currency exchange, payments, and financial management",
+            "Structured complex financial flows into intuitive user journeys",
+            "Integrated fiat and crypto services into one app",
+            "Design system development for consistent, scalable UI"
+          ],
+          "ru": [
+            "Спроектированы ключевые функции: обмен валют, платежи и управление финансами",
+            "Сложные финансовые сценарии структурированы в понятные пользовательские пути",
+            "Фиатные и криптосервисы объединены в одном приложении",
+            "Разработана дизайн-система для последовательного и масштабируемого интерфейса"
+          ]
+        },
+        "coming_soon": { "en": "Coming soon", "ru": "Скоро" },
+        "image": "assets/img/project-03-nova.jpg",
+        "image_alt": {
+          "en": "Nova banking app screens on two phones",
+          "ru": "Экраны банковского приложения Nova на двух телефонах"
+        }
+      },
+      {
+        "id": "04",
+        "type": { "en": "web platform", "ru": "Веб-платформа" },
+        "title": { "en": "Husher platform", "ru": "Платформа Husher" },
+        "tags": {
+          "en": ["Crypto exchange", "FinTech", "UX optimization"],
+          "ru": ["Криптообмен", "FinTech", "UX-оптимизация"]
+        },
+        "overview": {
+          "en": "A crypto exchange product bringing together asset conversion, transaction management, and essential financial tools",
+          "ru": "Продукт для криптообмена: конвертация активов, управление транзакциями и базовые финансовые инструменты"
+        },
+        "results": {
+          "en": [
+            "Expanded exchange capabilities with multi-exchange functionality",
+            "Introduced new account management features",
+            "Designed the referral system to attract new users",
+            "Increased exchange activity by 18% after the redesign"
+          ],
+          "ru": [
+            "Расширены возможности обмена за счёт мультивалютного функционала",
+            "Добавлены функции управления аккаунтом",
+            "Спроектирована реферальная система для привлечения новых пользователей",
+            "Активность обмена выросла на 18% после редизайна"
+          ]
+        },
+        "coming_soon": null,
+        "image": "assets/img/project-04-husher.jpg",
+        "image_alt": {
+          "en": "Husher crypto exchange platform on a laptop",
+          "ru": "Платформа криптообмена Husher на ноутбуке"
+        }
+      },
+      {
+        "id": "05",
+        "type": { "en": "App design", "ru": "Дизайн приложения" },
+        "title": { "en": "Menorah app", "ru": "Приложение Menorah" },
+        "tags": {
+          "en": ["Social Tech", "AI", "Gamification"],
+          "ru": ["Соцтех", "AI", "Геймификация"]
+        },
+        "overview": {
+          "en": "Designed an AI-powered community platform combining gamification, identity verification, community chats, and AI tools",
+          "ru": "AI-платформа для сообществ: геймификация, верификация личности, чаты и AI-инструменты"
+        },
+        "results": {
+          "en": [
+            "Structured complex user journeys across core features",
+            "Designed gamified progression and verification flows",
+            "500+ screens designed and 8 core user flows",
+            "Aligned UX solutions with business requirements through direct client collaboration"
+          ],
+          "ru": [
+            "Структурированы сложные пользовательские сценарии по ключевым функциям",
+            "Спроектированы геймифицированная прогрессия и сценарии верификации",
+            "Спроектировано 500+ экранов и 8 ключевых пользовательских сценариев",
+            "UX-решения согласованы с бизнес-требованиями в ходе прямой работы с клиентом"
+          ]
+        },
+        "coming_soon": null,
+        "image": "assets/img/project-05-menorah.jpg",
+        "image_alt": {
+          "en": "Menorah community app profile screen on a phone",
+          "ru": "Экран профиля приложения Menorah на телефоне"
+        }
+      },
+      {
+        "id": "06",
+        "type": { "en": "web platform", "ru": "Веб-платформа" },
+        "title": { "en": "Eclipse platform", "ru": "Платформа Eclipse" },
+        "tags": {
+          "en": ["iGaming platform", "B2C", "Workflow design"],
+          "ru": ["iGaming-платформа", "B2C", "Проектирование процессов"]
+        },
+        "overview": {
+          "en": "An integrated casino platform combining gaming experiences, player accounts, rewards, and personalized features in one ecosystem",
+          "ru": "Интегрированная казино-платформа: игровой опыт, аккаунты игроков, награды и персонализация в единой экосистеме"
+        },
+        "results": {
+          "en": [
+            "Developed end-to-end UX/UI solutions across the platform's core features",
+            "Optimized the deposit journey through UX research, analysis, and industry best practices",
+            "Designed 60+ screens for desktop and mobile versions"
+          ],
+          "ru": [
+            "Разработаны end-to-end UX/UI решения для ключевых функций платформы",
+            "Оптимизирован сценарий депозита на основе UX-исследований, аналитики и отраслевых практик",
+            "Спроектировано 60+ экранов для десктопа и мобильных устройств"
+          ]
+        },
+        "coming_soon": null,
+        "image": "assets/img/project-06-eclipse.jpg",
+        "image_alt": {
+          "en": "Eclipse iGaming platform dashboard",
+          "ru": "Дашборд iGaming-платформы Eclipse"
+        }
+      },
+      {
+        "id": "07",
+        "type": { "en": "web & adaptive", "ru": "Веб и адаптив" },
+        "title": { "en": "Stroytek website", "ru": "Сайт Stroytek" },
+        "tags": {
+          "en": ["Real estate", "B2C", "Data-driven UX"],
+          "ru": ["Недвижимость", "B2C", "UX на основе данных"]
+        },
+        "overview": {
+          "en": "Delivered an end-to-end website redesign, combining data-driven UX decisions, advanced apartment search, and new functionality",
+          "ru": "Комплексный редизайн сайта: решения на основе данных, продвинутый поиск квартир и новый функционал"
+        },
+        "results": {
+          "en": [
+            "Improved apartment discovery with advanced filtering by key property parameters",
+            "Streamlined the journey from apartment search to inquiry submission",
+            "Increased website traffic by 30% after the launch",
+            "Generated 22% more inquiries post-redesign"
+          ],
+          "ru": [
+            "Улучшен подбор квартир за счёт продвинутой фильтрации по ключевым параметрам",
+            "Упрощён путь от поиска квартиры до отправки заявки",
+            "Трафик сайта вырос на 30% после запуска",
+            "Количество заявок выросло на 22% после редизайна"
+          ]
+        },
+        "coming_soon": null,
+        "image": "assets/img/project-07-stroytek.jpg",
+        "image_alt": {
+          "en": "Stroytek real estate website on a laptop",
+          "ru": "Сайт недвижимости Stroytek на ноутбуке"
+        }
+      }
+    ]
+  },
+
+  "explorations": {
+    "title": { "en": "Explorations", "ru": "Эксперименты" },
+    "subtitle": {
+      "en": "A curated collection of concepts, visual studies, and independent design experiments created outside of commercial projects",
+      "ru": "Подборка концептов, визуальных исследований и независимых дизайн-экспериментов вне коммерческих проектов"
+    },
+    "cta": { "en": "View Dribbble", "ru": "Смотреть на Dribbble" },
+    "items": [
+      {
+        "id": "e1",
+        "image": "assets/img/explore-01-crypto.jpg",
+        "image_alt": { "en": "Crypto wallet app concept", "ru": "Концепт крипто-кошелька" }
+      },
+      {
+        "id": "e2",
+        "image": "assets/img/explore-02-movy-bank.jpg",
+        "image_alt": { "en": "Movy Bank landing page concept", "ru": "Концепт лендинга Movy Bank" }
+      },
+      {
+        "id": "e3",
+        "image": "assets/img/explore-03-smartfin.jpg",
+        "image_alt": { "en": "SmartFin finance dashboard concept", "ru": "Концепт финансового дашборда SmartFin" }
+      },
+      {
+        "id": "e4",
+        "image": "assets/img/explore-04-fitness.jpg",
+        "image_alt": { "en": "Fitness tracking dashboard concept", "ru": "Концепт дашборда фитнес-трекинга" }
+      },
+      {
+        "id": "e5",
+        "image": "assets/img/explore-05-neurofin.jpg",
+        "image_alt": { "en": "NeuroFin AI finance landing concept", "ru": "Концепт лендинга NeuroFin" }
+      },
+      {
+        "id": "e6",
+        "image": "assets/img/explore-06-aeroluxe.jpg",
+        "image_alt": { "en": "Aeroluxe private jet booking concept", "ru": "Концепт бронирования частных рейсов Aeroluxe" }
+      }
+    ]
+  },
+
+  "contact": {
+    "title": { "en": "Telegram", "ru": "Telegram" },
+    "handle": { "en": "@ladestin", "ru": "@ladestin" },
+    "subtitle": { "en": "Open to new collaborations", "ru": "Открыта к новым проектам" },
+    "links": [
+      { "key": "cv", "label": { "en": "CV", "ru": "CV" }, "href": "#" },
+      { "key": "linkedin", "label": { "en": "LinkedIn", "ru": "LinkedIn" }, "href": "https://www.linkedin.com/in/anna-zhdankina-72b307210" },
+      { "key": "mail", "label": { "en": "Email", "ru": "Email" }, "href": "mailto:annazhdankina64@gmail.com" }
+    ],
+    "image": "assets/img/photo-anna.jpg",
+    "image_alt": { "en": "Anna Zhdankina", "ru": "Анна Жданкина" }
+  }
+}
