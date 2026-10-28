@@ -6,7 +6,6 @@
   'use strict';
 
   var DEFAULT_LANG = 'en';
-  var STORAGE_KEY = 'anna-lang';
 
   /** Достать значение по пути вида "projects.items.0.title" */
   function pick(obj, path) {
@@ -15,19 +14,21 @@
     }, obj);
   }
 
-  /** Выбрать язык: ?lang= → сохранённый выбор → язык браузера → en */
+  /**
+   * Язык страницы. По умолчанию всегда английский.
+   *
+   * Язык браузера сознательно НЕ учитываем: русская версия ещё не вычитана
+   * и выглядит сырой, поэтому ориентироваться на него нельзя. Единственный
+   * способ показать русскую — явный параметр index.html?lang=ru.
+   *
+   * Запоминание выбора вернём вместе с настоящим переключателем языка.
+   */
   function detectLang(available) {
     var q = null;
     try { q = new URLSearchParams(location.search).get('lang'); } catch (e) { /* ignore */ }
     if (q && available.indexOf(q) !== -1) return q;
 
-    try {
-      var saved = localStorage.getItem(STORAGE_KEY);
-      if (saved && available.indexOf(saved) !== -1) return saved;
-    } catch (e) { /* приватный режим — игнорируем */ }
-
-    var nav = (navigator.language || '').slice(0, 2).toLowerCase();
-    return available.indexOf(nav) !== -1 ? nav : DEFAULT_LANG;
+    return DEFAULT_LANG;
   }
 
   /**
@@ -55,33 +56,6 @@
     document.documentElement.lang = lang;
   }
 
-  /** Переключатель языка в правом верхнем углу */
-  function mountSwitcher(langs, current, onChange) {
-    if (langs.length < 2) return;
-
-    var box = document.createElement('div');
-    box.className = 'lang-switch';
-
-    langs.forEach(function (lang) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.textContent = lang.toUpperCase();
-      b.className = 'lang-switch__btn' + (lang === current ? ' is-active' : '');
-      b.addEventListener('click', function () {
-        if (lang === current) return;
-        current = lang;
-        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
-        box.querySelectorAll('.lang-switch__btn').forEach(function (x) {
-          x.classList.toggle('is-active', x.textContent.toLowerCase() === lang);
-        });
-        onChange(lang);
-      });
-      box.appendChild(b);
-    });
-
-    document.body.appendChild(box);
-  }
-
   fetch('content/content.json')
     .then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -93,7 +67,6 @@
       var lang = detectLang(langs);
 
       apply(dict, lang);
-      mountSwitcher(langs, lang, function (next) { apply(dict, next); });
     })
     .catch(function (err) {
       // Разметка уже содержит английский текст — страница остаётся рабочей.
