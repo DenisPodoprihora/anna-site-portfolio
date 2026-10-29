@@ -6,8 +6,17 @@
      масштабируется, а перестраивается в мобильную раскладку, и мобильному
      браузеру нужен настоящий масштаб страницы -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Цвет браузерной полосы (Safari, Chrome на Android). Без него полоса
+     над шапкой остаётся системной и полупрозрачной, и при прокрутке
+     сквозь неё видно уезжающий контент — это и читается как прозрачный
+     зазор над header. Цвет равен фону шапки, поэтому полоса сливается с
+     ней в одно целое. -->
+<meta name="theme-color" content="#f3f4f6">
 <title>Anna Zhdankina — UX/UI &amp; product designer</title>
-<!-- Фавикон — кроп портрета (assets/img/photo-anna.jpg), центр на лице -->
+<!-- Фавикон — нода 182:18994 из макета: оранжевый квадрат со скруглением
+     и девушкой за ноутбуком. В .ico три размера (16/32/48), а у
+     apple-touch-icon скругления нет: iOS маскирует иконку сам и залил бы
+     прозрачные углы чёрным. -->
 <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon-192.png">
