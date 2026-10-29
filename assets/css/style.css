@@ -81,6 +81,19 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
 }
 
+/* ---------- Подписи-переключатели ----------
+   В нескольких местах макет подписывает одно и то же по-разному на
+   десктопе и на мобильном (кнопки шапки, кнопка в Explorations,
+   разбивка заголовка hero). Обе подписи лежат в разметке рядом, а
+   видимую выбирает одна из этих двух строк — переключение в медиазапросе
+   ниже.
+
+   !important здесь вынужденный: внутри .hero__title строки разложены
+   правилом `.hero__title span { display: block }`, у которого
+   специфичность выше, и без !important мобильные строки заголовка
+   показывались бы и на десктопе. */
+.only-mobile { display: none !important; }
+
 /* ============================================================
    Кнопки — h48, кегль 18, скругление 200
    ============================================================ */
@@ -282,6 +295,13 @@ a { color: inherit; text-decoration: none; }
 /* ---------- Декоративные карточки hero ----------
    Геометрия снята с фреймов 125:22089 / 125:22090 / 127:28258.
    Все размеры — «как есть» из Figma, включая дробные.            */
+
+/* Ряд декора существует только ради мобильной раскладки: там он
+   становится обычным флексом и раскладывает карточки по краям экрана.
+   На десктопе он «растворяется» — display: contents выбрасывает его из
+   потока, и карточки снова оказываются прямыми потомками .hero__inner,
+   относительно которого и позиционируются абсолютно. */
+.hero__deco-row { display: contents; }
 
 .hero__deco {
   position: absolute;
@@ -987,3 +1007,332 @@ a.project__media:focus-visible img {
 .chip__icon--mail img     { left: 2px; top: 3px; width: 17px; height: 17px; }
 
 .chip:hover { border-color: var(--c-ink); }
+
+/* ============================================================
+   Мобильная раскладка — до 768px (фрейм 166:20210, 375×4322)
+
+   Здесь страница не масштабируется, а перестраивается: zoom снят,
+   секции идут в одну колонку, кегли и отступы — свои. Всё, что выше,
+   описывает десктопный макет 1440px и остаётся в силе от 768px.
+
+   Отдельная тонкость — зазоры. В Figma высота текстового блока обрезана
+   по чернилам (кегль 32 → блок 22), а в браузере блок равен
+   строке (кегль 32 → блок 38.4). Поэтому макетный зазор между двумя
+   текстами нельзя переносить в CSS как есть: из него надо вычесть
+   выносы обоих блоков, иначе каждая пара разъедется на 10–20px.
+   Значения ниже — макетный зазор минус посчитанные выносы
+   (DM Sans: ascent .992em, descent .282em, высота прописной .7em).
+   Что получилось, сверено с отрисовкой макета.
+   ============================================================ */
+@media (max-width: 767px) {
+
+  :root {
+    --header-h: 56px;
+    --radius: 16px;
+  }
+
+  /* ---------- Каркас ---------- */
+  body {
+    width: 100%;
+    margin: 0;
+    zoom: 1;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  /* Короткие подписи кнопок — см. .only-mobile выше */
+  .only-desktop { display: none !important; }
+  .only-mobile  { display: block !important; }
+
+  /* ---------- Кнопки ---------- */
+  /* h40 и кегль 16 — так подписаны кнопки внутри контента */
+  .btn {
+    height: 40px;
+    padding: 12px 16px;
+    gap: 8px;
+    font-size: 16px;
+  }
+  .btn--ghost { padding: 12px 16px; }
+  .btn--dark  { padding: 12px 16px; }
+  .btn__icon  { width: 16px; height: 16px; }
+
+  /* ---------- Шапка ---------- */
+  .header__inner { padding: 0 20px; }
+  .header__brand { font-size: 16px; letter-spacing: -.32px; }
+  /* В мобильной шапке подписи «UX/UI & product designer» нет — она не
+     влезает рядом с двумя кнопками */
+  .header__role { display: none; }
+  .header__actions { gap: 8px; }
+
+  /* Кнопки шапки мельче контентных: h36 и кегль 14 */
+  .header .btn {
+    height: 36px;
+    padding: 9px 16px;
+    gap: 5.4px;
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+  /* У «CV» иконка справа, поэтому правое поле меньше левого */
+  .header .btn--dark { padding: 9px 12px 9px 16px; }
+  .header .btn__icon { width: 14px; height: 14px; }
+
+  /* ---------- Hero ---------- */
+  /* padding-top 44 — отступ от шапки до портрета; высота блока портрета
+     153, а не 162 из макета: 162 — это высота фрейма в Figma, но
+     заголовок под ним в браузере начинается на 6px ниже своих чернил,
+     и чтобы чернила встали на макетное место, блок надо укоротить.
+     Бейдж при этом свисает за нижний край блока — он абсолютный, и в
+     макете он тоже выходит за фрейм. */
+  /* Правая карточка декора уходит за правый край экрана — так в макете,
+     и обрезать её должно по краю окна, а не по краю ряда: у ряда внутри
+     ещё и левая карточка, которая свисает вверх за его верхнюю границу. */
+  .hero { overflow: hidden; }
+  .hero__inner {
+    height: auto;
+    padding: 44px 20px 0;
+    gap: 60px;
+  }
+  .hero__center { width: 100%; gap: 40px; }
+
+  /* Портрет крупнее своего блока и свисает по бокам — как в макете */
+  .hero__avatar { width: 133px; height: 156px; }
+  .hero__avatar img {
+    width: 144.9px;
+    height: 144.9px;
+    border-width: 7.245px;
+    box-shadow: 10.79px 10.79px 33px .67px rgba(19, 23, 32, .05);
+  }
+  .hero__badge {
+    top: 124px;
+    padding: 6px 16px;
+    border-radius: 115px;
+    font-size: 16px;
+    letter-spacing: -.051px;
+  }
+
+  /* Макет 28, но блок заголовка в браузере выше чернил на 5.6px сверху
+     и на 5.7px снизу — отсюда 17 */
+  .hero__heading { gap: 16px; }
+  .hero__title {
+    font-size: 32px;
+    line-height: 34px;
+    letter-spacing: -.96px;
+  }
+  .hero__subtitle {
+    width: 100%;
+    font-size: 16px;
+    line-height: 22.4px;
+    letter-spacing: -.16px;
+  }
+
+  /* Ряд декора: во всю ширину экрана, карточки по краям.
+
+     Ширины — макетные (285 и 247.567), умноженные на масштаб, потому
+     что transform не меняет место, занимаемое в потоке: без этого
+     флекс разложил бы карточки по немасштабированным 285 и 247.6 и они
+     налезли бы друг на друга.
+
+     Внутри коробок дети сохранили десктопные координаты, поэтому арт
+     свисает за края коробки: у левой карточки он выходит вверх, у правой
+     ещё и влево. Отсюда translate в обеих — он ставит видимую картинку
+     туда, где она стоит в макете, не трогая ни поток, ни высоту ряда.
+     Замеры по отрисовке макета: левая 0..169 × 519..601, правая
+     223..374 × 515..643. */
+  .hero__deco-row {
+    flex: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+    height: 136px;
+  }
+  .hero__deco { position: relative; }
+  .hero__deco--left {
+    left: auto;
+    top: auto;
+    flex: none;
+    width: 184.11px;
+    height: 82.04px;
+    transform: translateY(-20px) scale(.646);
+    transform-origin: 0 0;
+  }
+  .hero__deco--right {
+    left: auto;
+    top: auto;
+    flex: none;
+    width: 153px;
+    height: 117.6px;
+    /* .665 подобран по ширине белой панели внутри карточки (самая
+       контрастная деталь: в макете 127px, на десктопном арте при .618
+       выходило 118). При таком масштабе карточка свисает за правый край
+       экрана на ~14px — в макете она тоже уходит за край, поэтому у
+       .hero на мобильном стоит overflow: hidden. */
+    transform: translate(34.7px, -5px) scale(.665);
+    transform-origin: 0 0;
+  }
+
+  /* ---------- Заголовки секций ---------- */
+  .section-head { gap: 11px; }
+  .section-head__title { font-size: 40px; letter-spacing: -1.2px; }
+  .section-head__sub {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 22.4px;
+    letter-spacing: -.16px;
+  }
+
+  /* ---------- Проекты ---------- */
+  /* 72 в макете — это зазор между фреймами секций; блок заголовка
+     начинается на 11.7px выше своих чернил, отсюда 60 */
+  .projects { padding-top: 33px; }
+  .projects__grid { margin-top: 35px; gap: 32px; }
+
+  /* Карточка в одну колонку: картинка сверху, текст под ней. Порядок
+     задан явно с удвоенной специфичностью — у чётных карточек
+     (.project--reverse) он на десктопе перевёрнут, и правила одной
+     специфичности их бы не перебили. */
+  .project { grid-template-columns: 1fr; gap: 12px; }
+  .project .project__media,
+  .project--reverse .project__media { order: -1; }
+  .project .project__text,
+  .project--reverse .project__text  { order: 0; }
+
+  .project__media {
+    height: auto;
+    aspect-ratio: 335 / 300;
+    border-radius: 16px;
+  }
+  .project__text {
+    height: auto;
+    padding: 24px 20px;
+    border-radius: 16px;
+    /* Макетный зазор 32, но заголовок карточки в браузере начинается на
+     8.2px ниже своих чернил (интерлиньяж 120% больше строки шрифта), так
+     что до разметки доходит только 24 — иначе заголовок уезжает вниз. */
+    gap: 24px;
+  }
+  /* В макете строка «01 / mobile App» стоит вплотную к верхнему краю
+     20-пиксельной строки, а разделитель — по её нижнему краю. */
+  .project__head { height: 20px; padding-bottom: 0; align-items: flex-start; }
+  .project__num,
+  .project__type { font-size: 12px; letter-spacing: -.12px; }
+
+  .project__body { gap: 27px; }
+  .project__info { width: 100%; gap: 27px; }
+  .project__top { gap: 8px; }
+  /* На мобильном макет делает заголовок карточки Medium, а не Regular */
+  .project__title {
+    font-size: 32px;
+    line-height: 38.4px;
+    font-weight: 500;
+    letter-spacing: -.64px;
+  }
+
+  .tags { gap: 8px; }
+  .tag {
+    padding: 8px 12px;
+    font-size: 14px;
+    letter-spacing: -.045px;
+  }
+
+  .project__details { gap: 22px; }
+  .project__group { gap: 10px; }
+  .project__label { font-size: 18px; letter-spacing: -.36px; }
+  .project__overview,
+  .project__results { font-size: 16px; line-height: 20.8px; }
+  .project__results { gap: 6px; }
+
+  /* ---------- Explorations ---------- */
+  .explorations { padding-top: 60px; }
+  /* Пропорция карточки та же, что на десктопе (427/324 = 335/254),
+     меняется только скругление и число колонок */
+  .explorations__grid {
+    margin-top: 35px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .explore { border-radius: 16px; }
+  /* В мобильном макете карточек три, а не шесть: в одну колонку шесть
+     картинок — это ещё 1600px прокрутки подряд. Лишние три остаются в
+     разметке и показываются от 768px, а на мобильном на них ведёт
+     кнопка «View more» ниже. */
+  .explore:nth-child(n + 4) { display: none; }
+  .explorations__cta { margin-top: 20px; }
+
+  /* ---------- Контакты ---------- */
+  .contact { padding: 72px 0 40px; }
+  .contact__card {
+    padding: 40px 20px;
+    border-radius: 16px;
+    gap: 37px;
+  }
+
+  /* Заголовок в две строки: портрет занимает всю первую, «Telegram» и
+     «@ladestin» встают во вторую. order: -1 — потому что в разметке
+     портрет стоит между ними. */
+  .contact__title {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px 4px;
+    padding: 0;
+    font-size: 32px;
+    letter-spacing: -.96px;
+  }
+  .contact__avatar {
+    order: -1;
+    flex: 0 0 100%;
+    width: 106px;
+    height: 58.7px;
+  }
+  /* Пара кружков нарисована от левого края блока (left: 0 и 47.3), а сам
+     блок во всю строку — 295. В макете портрет по центру, поэтому оба
+     кружка сдвинуты на (295 − 106) / 2 = 94.5. Именно сдвиг кружков, а
+     не transform у блока: трансформация сместила бы и сам 295-пиксельный
+     бокс, и он вылез бы за правый край страницы. */
+  .contact__avatar > img { left: 94.5px; }
+  .contact__avatar > img,
+  .contact__tg {
+    width: 58.7px;
+    height: 58.7px;
+    box-shadow: 0 0 0 3.55px var(--c-white);
+  }
+  .contact__tg { left: 141.8px; }   /* 94.5 + 47.3 */
+  .contact__tg img {
+    left: 17.23px;
+    top: 19.78px;
+    width: 23.61px;
+    height: 23.61px;
+  }
+
+  .contact__body { width: 100%; gap: 14px; }
+  .contact__sub {
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -.16px;
+  }
+  /* Ширина обязательна: без неё флекс сжимает список по содержимому и
+     переноса на вторую строку не случается */
+  .contact__links {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip {
+    height: 36px;
+    padding: 0 16px 0 12px;
+    gap: 8px;
+    font-size: 16px;
+  }
+  .chip__icon { width: 16px; height: 16px; }
+  /* Иконки нарисованы под коробку 20×20 — здесь коробка 16, поэтому
+     координаты внутри пересчитаны в масштабе .8 */
+  .chip__icon--cv img       { left: 2.4px; top: 1.6px; width: 10.4px; height: 14.4px; }
+  .chip__icon--linkedin img { left: .8px;  top: .8px;  width: 14.4px; height: 16.8px; }
+  .chip__icon--mail img     { left: 1.6px; top: 2.4px; width: 13.6px; height: 13.6px; }
+}

@@ -10,13 +10,19 @@
     "name": { "en": "Anna Zhdankina", "ru": "Анна Жданкина" },
     "role": { "en": "UX/UI & product designer", "ru": "UX/UI и продуктовый дизайнер" },
     "cta_primary": { "en": "Contact me", "ru": "Связаться" },
-    "cta_secondary": { "en": "Download CV", "ru": "Скачать CV" }
+    "cta_secondary": { "en": "Download CV", "ru": "Скачать CV" },
+    "_note": "Ключи *_short — для мобильной раскладки до 768px, где в 375px не влезают длинные подписи; в макете кнопки подписаны «Contact» и «CV»",
+    "cta_primary_short": { "en": "Contact", "ru": "Связаться" },
+    "cta_secondary_short": { "en": "CV", "ru": "CV" }
   },
 
   "hero": {
     "badge": { "en": "Hi! I'm Anna 👋🏻", "ru": "Привет! Я Анна 👋🏻" },
     "title_line1": { "en": "UX/UI & product designer", "ru": "UX/UI и продуктовый дизайнер" },
     "title_line2": { "en": "with 4 years in design", "ru": "с 4 годами опыта в дизайне" },
+    "_note": "На мобильном заголовок в три строки, а не в две: перенос после «UX/UI &» задан макетом жёстко. Третья строка общая с десктопом — это title_line2",
+    "title_line1_short": { "en": "UX/UI &", "ru": "UX/UI и" },
+    "title_line2_short": { "en": "product designer", "ru": "продуктовый дизайнер" },
     "subtitle": {
       "en": "Designed 20+ digital products across FinTech, AI, SaaS, and Retail, including B2B platforms and mobile apps",
       "ru": "Спроектировала 20+ цифровых продуктов в FinTech, AI, SaaS и Retail, включая B2B-платформы и мобильные приложения"
@@ -42,6 +48,7 @@
         "id": "01",
         "type": { "en": "mobile App", "ru": "Мобильное приложение" },
         "title": { "en": "Kroshka kartoshka app", "ru": "Приложение «Крошка Картошка»" },
+        "title_short": { "en": "Kroshka kartoshka", "ru": "«Крошка Картошка»" },
         "tags": [
           { "en": "FoodTech", "ru": "FoodTech" },
           { "en": "B2C", "ru": "B2C" },
@@ -67,6 +74,7 @@
         "id": "02",
         "type": { "en": "web & adaptive", "ru": "Веб и адаптив" },
         "title": { "en": "EJS developer website", "ru": "Сайт застройщика EJS" },
+        "title_short": { "en": "EJS developer", "ru": "Застройщик EJS" },
         "tags": [
           { "en": "Real estate", "ru": "Недвижимость" },
           { "en": "UX optimization", "ru": "UX-оптимизация" },
@@ -226,7 +234,7 @@
       "en": "A curated collection of concepts, visual studies, and independent design experiments created outside of commercial projects",
       "ru": "Подборка концептов, визуальных исследований и независимых дизайн-экспериментов вне коммерческих проектов"
     },
-    "cta": { "en": "View Dribbble", "ru": "Смотреть на Dribbble" },
+    "cta": { "en": "View More", "ru": "Смотреть ещё" },
     "items": [
       {
         "id": "e1",
