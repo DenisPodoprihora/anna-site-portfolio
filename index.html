@@ -11,10 +11,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>
-/* Масштаб страницы. Макет сделан на 1440px, и ниже этой ширины окна он
-   не перестраивается, а сжимается целиком (zoom в правиле body).
-   Скрипт стоит здесь, в <head>, намеренно: он должен выставить --fit до
-   первой отрисовки, иначе страница успеет мигнуть немасштабированной. */
+/* Масштаб страницы. Макет сделан на 1440px, и окно любой ширины он не
+   перестраивает, а масштабирует целиком (zoom в правиле body): уже
+   1440 — сжимается, шире — растёт. Скрипт стоит здесь, в <head>,
+   намеренно: он должен выставить --fit до первой отрисовки, иначе
+   страница успеет мигнуть немасштабированной. */
 (function () {
   var BASE = 1440;
   function fit() {
@@ -22,7 +23,11 @@
        прокрутки, иначе на системах с классическими скроллбарами макет
        вылезал бы по горизонтали ровно на её ширину. */
     var avail = document.documentElement.clientWidth;
-    document.documentElement.style.setProperty('--fit', Math.min(1, avail / BASE));
+    /* Коэффициент не ограничен единицей сверху: на широком мониторе
+       макет растёт во столько же раз, во сколько он сжимался бы на
+       узком. Верхнего предела нет намеренно — по пожеланию заказчика
+       «чем шире экран, тем больше масштаб». */
+    document.documentElement.style.setProperty('--fit', avail / BASE);
   }
   fit();
   window.addEventListener('resize', fit);
@@ -482,7 +487,11 @@
 
       <ul class="contact__links">
         <li>
-          <a class="chip" href="https://drive.google.com/uc?export=download&amp;id=1stxoKSdRMCOWunvfaYAGdhhkiSmPyCZh" target="_blank" rel="noopener noreferrer">
+          <!-- Здесь именно просмотр (/file/d/.../view), а не скачивание:
+               внизу CV открывается на чтение в новой вкладке. Кнопка
+               «Download CV» в шапке ведёт на uc?export=download и качает
+               сразу — это два разных адреса одного файла. -->
+          <a class="chip" href="https://drive.google.com/file/d/1stxoKSdRMCOWunvfaYAGdhhkiSmPyCZh/view" target="_blank" rel="noopener noreferrer">
             <span class="chip__icon chip__icon--cv"><img src="assets/icons/contact-cv.svg" alt=""></span>
             <span data-i18n="contact.links.0.label">CV</span>
           </a>
