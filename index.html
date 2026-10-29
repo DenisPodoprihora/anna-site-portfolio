@@ -303,7 +303,14 @@
           </div>
         </div>
         <div class="project__media">
-          <img src="assets/img/project-03-nova.jpg" alt="Nova banking app screens on two phones" width="649" height="685">
+          <!-- У этой карточки картинки для двух раскладок разные, поэтому
+               <picture>: <source media> выбирает одну, вторая не
+               скачивается. Пропорции у них свои под каждую раскладку —
+               649/685 на десктопе и 335/300 на мобильном, кроп не нужен. -->
+          <picture>
+            <source media="(max-width: 767px)" srcset="assets/img/project-03-nova-mobile.jpg">
+            <img src="assets/img/project-03-nova.jpg" alt="Nova banking app screens on two phones" width="649" height="685">
+          </picture>
         </div>
       </article>
 
@@ -393,7 +400,11 @@
         </div>
         <!-- href совпадает с .project__cta в блоке описания -->
         <a class="project__media" href="https://www.figma.com/design/Xm7GJ6SGDolgdNxE8O2CAv/Menorah-Project?node-id=4266-218990&amp;t=Kb8ykupJzD70LAKs-4" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/project-05-menorah.jpg" alt="Menorah community app profile screen on a phone" width="649" height="685">
+          <!-- Как у карточки 03: картинки для двух раскладок разные -->
+          <picture>
+            <source media="(max-width: 767px)" srcset="assets/img/project-05-menorah-mobile.jpg">
+            <img src="assets/img/project-05-menorah.jpg" alt="Menorah community app profile screen on a phone" width="649" height="685">
+          </picture>
         </a>
       </article>
 
