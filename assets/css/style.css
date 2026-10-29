@@ -100,7 +100,11 @@ a { color: inherit; text-decoration: none; }
   background: var(--c-ink);
   color: var(--c-white);
 }
-.btn--dark:hover { background: #333438; }
+/* Figma, компонент 81:21162 «V=Default, State=Active, Size=L»: геометрия
+   та же (175×48, radius 200), меняется только заливка на оранжевую —
+   текст и иконка остаются белыми (rgb(255,255,255)). Тот же компонент
+   стоит на «View project» и «View Dribbble», поэтому ховер общий. */
+.btn--dark:hover { background: var(--c-orange); }
 
 .btn__icon { flex: none; }
 
@@ -756,7 +760,10 @@ a { color: inherit; text-decoration: none; }
   transition: transform .25s ease;
 }
 
-.explore:hover { transform: translateY(-4px); }
+/* В макете ховера для этих карточек нет — пожелание заказчика: вместо
+   подъёма лёгкое увеличение. 1.02 от 427px даёт ~8.5px прироста, то есть
+   ~4.3px на сторону при зазоре сетки 20px — соседние карточки не задевает. */
+.explore:hover { transform: scale(1.02); }
 
 .explore img {
   width: 100%;
