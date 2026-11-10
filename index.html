@@ -49,6 +49,31 @@
   window.addEventListener('resize', fit);
 })();
 </script>
+
+<!-- ============ АНАЛИТИКА ============ -->
+<!-- Google Tag Manager. dataLayer создаётся здесь, до кода Метрики:
+     в её init он передан как ecommerce, и без уже существующего
+     dataLayer счётчик не увидит события покупок/целей из GTM.
+     Скрипт async: страницу не задерживает. -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W8M72B4Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114172036', 'ym');
+
+    ym(114172036, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -589,5 +614,11 @@
 </section>
 
 <script src="assets/js/main.js"></script>
+
+<!-- ============ АНАЛИТИКА ============ -->
+<!-- Нумерация Яндекс.Метрики. <noscript>-пиксель — резерв для браузеров
+     без JS: без него такие визиты в отчётах не видны. position:absolute
+     и left:-9999px уводят его за край, чтобы не ломать вёрстку. -->
+<noscript><div><img src="https://mc.yandex.ru/watch/114172036" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </body>
 </html>
